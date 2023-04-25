@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+
+  webapp:
+    restart: always
+    build:
+      context: ./WEBAPI
+    ports:
+      - "8000:8000"
+    command: [ "python3", "./src/manage.py", "runserver", "0.0.0.0:8000"]
+    env_file:
+      - ./.env.dev
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+volumes:
+  postgres_data:
