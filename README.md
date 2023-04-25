@@ -34,7 +34,21 @@ as restaurant owners), checking current day menus and voting results and voting(
 ### Installation:
 
  ```bash
-  git clone https://github.com/
+  git clone https://github.com/rraatt/FoodVoteApp.git
+```
+
+Create a .env.dev file and add the following variables:
+
+ ```bash
+  DEBUG=1
+  SECRET_KEY=<Your key>
+  DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+  SQL_ENGINE=django.db.backends.postgresql
+  SQL_DATABASE=hello_django_dev
+  SQL_USER=user
+  SQL_PASSWORD=password
+  SQL_HOST=db
+  SQL_PORT=5432
 ```
 
 Create and activate a virtual environment:
@@ -47,7 +61,6 @@ Apply migrations
 
  ```bash
   docker-compose exec webapp python ./src/manage.py migrate         
-
 ```
 
 Register user with admin rights
